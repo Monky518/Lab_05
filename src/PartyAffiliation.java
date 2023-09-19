@@ -10,24 +10,38 @@ public class PartyAffiliation
         //Tests: just the four options D, R, I, Other. Use as cascaded if structure not separate if statements!
 
         Scanner in = new Scanner(System.in);
-        String partyAff = "";
-        boolean validInput = false;
+        String partyAff;
+        boolean validInput;
 
-        do
+        do //checks for valid input
         {
             //get rid of ln in "println" to have the user write in the same line
             System.out.print("Enter your party affiliation [D R I]: ");
             partyAff = in.nextLine();
 
-            if (partyAff == "D" || partyAff == "R" || partyAff == "I")
+            System.out.println(partyAff);
+
+            if (partyAff == "D")
             {
+                System.out.println("You are a Democratic Donkey!");
+                validInput = true;
+            }
+            else if (partyAff == "R")
+            {
+                System.out.println("You are a Republican Elephant!");
+                validInput = true;
+            }
+            else if (partyAff == "I")
+            {
+                System.out.println("You are an Independent Person!");
                 validInput = true;
             }
             else
             {
+                System.out.println("You incorrectly entered: " + partyAff);
                 validInput = false;
             }
         }
-        while(validInput);
+        while(!validInput);
     }
 }

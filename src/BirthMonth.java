@@ -14,47 +14,34 @@ public class BirthMonth
         boolean validInput = false;
         String trash = "";
 
-        do
+        do //checks valid int input
         {
-            do //checks valid int input
+            System.out.print("Input your birth month initial [1 - 12]: ");
+            if(in.hasNextInt())
             {
-                System.out.print("Input your birth month initial [1 - 12]: ");
-                if(in.hasNextInt())
-                {
-                    //checks for valid int input, and then throws away empty last line
-                    birthMonth = in.nextInt();
-                    in.nextLine();
+                //checks for valid int input, and then throws away empty last line
+                birthMonth = in.nextInt();
+                in.nextLine();
 
-                    validInput = true;
-                }
-                else
+                validInput = true;
+                if (!(birthMonth >= 1 && birthMonth <= 10))
                 {
-                    //invalid int input, why trash is a string and not an int
-                    trash = in.nextLine();
-                    System.out.println("You entered incorrectly, you typed: " + trash);
-
+                    System.out.println("You entered out of range, you typed: " + birthMonth);
                     validInput = false;
                 }
             }
-            while(!validInput);
-
-            //reset validInput before running again
-            validInput = false;
-
-            //checks valid int in range
-            if (birthMonth >= 1 && birthMonth <= 10)
-            {
-                //valid birth month input
-                validInput = true;
-                System.out.println("Your birth month is: " + birthMonth);
-            }
             else
             {
-                //invalid birth month input
+                //invalid int input, why trash is a string and not an int
+                trash = in.nextLine();
+                System.out.println("You entered incorrectly, you typed: " + trash);
+
                 validInput = false;
-                System.out.println("You entered an incorrect month value: " + birthMonth);
             }
         }
-        while (!validInput);
+        while(!validInput);
+
+        //successfully went past both checks
+        System.out.println("Your birth month is: " + birthMonth);
     }
 }
