@@ -11,9 +11,9 @@ public class ShipCostCalculator
         Scanner in = new Scanner(System.in);
         double itemPrice = 0;
         double shippingFee = 1.02;
-        double finalPrice = 0;
-        String trash = "";
-        boolean validInput = false;
+        double finalPrice;
+        String trash;
+        boolean validInput;
 
         do //checks valid input
         {

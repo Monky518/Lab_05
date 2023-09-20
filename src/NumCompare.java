@@ -12,44 +12,60 @@ public class NumCompare
         int numOne = 0;
         int numTwo = 0;
         Scanner in = new Scanner(System.in);
-        String trash = "";
-        boolean validInput = false;
+        String trash;
+        boolean validInput;
+        boolean goingBack;
 
-        do //first num check
+        do
         {
-            System.out.print("Enter your first number: ");
-            if (in.hasNextInt())
-            {
-                numOne = in.nextInt();
-                in.nextInt();
-                validInput = true;
-            }
-            else
-            {
-                trash = in.nextLine();
-                System.out.println("You incorrectly entered: " + trash);
-                validInput = false;
-            }
-        }
-        while(!validInput);
+            goingBack = false; //resetting goingBack before completing the loop
 
-        do //second num check
-        {
-            System.out.print("Enter your second number: ");
-            if (in.hasNextInt())
+            do //first num check
             {
-                numTwo = in.nextInt();
-                in.nextInt();
-                validInput = true;
+                System.out.print("Enter your first number: ");
+                if (in.hasNextInt())
+                {
+                    numOne = in.nextInt();
+                    in.nextLine();
+                    validInput = true;
+                }
+                else
+                {
+                    trash = in.nextLine();
+                    System.out.println("You incorrectly entered: " + trash);
+                    validInput = false;
+                }
             }
-            else
+            while(!validInput);
+
+            do //second num check
             {
-                trash = in.nextLine();
-                System.out.println("You incorrectly entered: " + trash);
-                validInput = false;
+                System.out.print("Enter your second number or reset first number [N or Back]: ");
+                if (in.hasNextInt())
+                {
+                    numTwo = in.nextInt();
+                    in.nextLine();
+                    validInput = true;
+                }
+                else
+                {
+                    trash = in.nextLine();
+                    if (trash.equals("Back") || trash.equals("back")) //testing if user is goingBack
+                    {
+                        System.out.println("Going back");
+                        goingBack = true;
+                        validInput = true;
+                    }
+                    else
+                    {
+                        System.out.println("You incorrectly entered: " + trash);
+                        validInput = false;
+                    }
+                }
             }
+            while(!validInput); //go past if validInput
         }
-        while(!validInput);
+        while(goingBack); //go past if *not* goingBack
 
         if (numOne == numTwo)
         {

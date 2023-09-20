@@ -19,19 +19,17 @@ public class PartyAffiliation
             System.out.print("Enter your party affiliation [D R I]: ");
             partyAff = in.nextLine();
 
-            System.out.println(partyAff);
-
-            if (partyAff == "D")
+            if (partyAff.equals("D") || partyAff.equals("d"))
             {
                 System.out.println("You are a Democratic Donkey!");
                 validInput = true;
             }
-            else if (partyAff == "R")
+            else if (partyAff.equals("R") || partyAff.equals("r"))
             {
                 System.out.println("You are a Republican Elephant!");
                 validInput = true;
             }
-            else if (partyAff == "I")
+            else if (partyAff.equals("I") || partyAff.equals("i"))
             {
                 System.out.println("You are an Independent Person!");
                 validInput = true;

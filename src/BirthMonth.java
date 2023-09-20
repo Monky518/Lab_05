@@ -11,8 +11,8 @@ public class BirthMonth
 
         Scanner in = new Scanner(System.in);
         int birthMonth = 0;
-        boolean validInput = false;
-        String trash = "";
+        boolean validInput;
+        String trash;
 
         do //checks valid int input
         {
